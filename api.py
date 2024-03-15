@@ -40,7 +40,6 @@ def get_pathing():
     algo = Algo()
     # ['SF090']
     commands = algo.run_task1(request.form.get('algo'))
-    print(commands)
-    return(request.form.get('algo'))
+    return commands
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
