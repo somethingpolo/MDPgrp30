@@ -109,3 +109,33 @@ model = init_detector(config, checkpoint, device='cpu')
 
 #     # Wait for a short period before checking again
 #     time.sleep(2)  # Adjust the sleep duration as needed
+
+# @app.route('/stitch', methods=['GET'])
+# def stitch_images():
+#     # grab the paths to the input images and initialize our images list
+#     print("[stitch] loading images...")
+#     image_folder = sorted(list(paths.list_images("images")))
+#     images = []
+#     index = 0
+#     # loop over the image paths, load each one, and add them to our
+#     # images to stitch list
+#     for image in image_folder:
+#         target = Image.open(image)
+#         images.append({f"img{index+1}": target, "size": target.size})
+#         index += 1
+#     total_width = 0
+#     heights = []
+#     for i in range(len(images)):
+#         heights.append(images[i]["size"][1])
+#     total_height = max(heights)
+#     for image in images:
+#         total_width += image.get('size')[0]
+#     stitched = Image.new('RGB', (total_width, total_height))
+#     index = 0
+#     width = 0
+#     for image in images:
+#         stitched.paste(im=image[f"img{index+1}"], box=(width,0))
+#         width += image.get('size')[0]
+#         index += 1
+#     stitched.save("images/stitched.jpg")
+#     return "okay"
