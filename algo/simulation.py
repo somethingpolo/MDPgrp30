@@ -18,7 +18,7 @@ class Simulation:
     def __init__(self):
         pygame.init()
         self.running = True
-        self.font = pygame.font.Font("fonts/Formula1-Regular.ttf", 20)
+        self.font = pygame.font.Font("fonts\Formula1-Regular.ttf", 20)
         self.screen = pygame.display.set_mode((800, 650), pygame.RESIZABLE)
         self.clock = None
         pygame.mouse.set_visible(True)

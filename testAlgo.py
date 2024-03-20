@@ -1,9 +1,7 @@
 from algo.algo import Algo
 
 if __name__ == "__main__":
-    a = "ALG:2,17,S,0;16,17,W,1;10,11,S,2;4,6,N,3;9,2,E,4;17,5,W,5;".encode(
-                "utf-8"
-    )
+    a = "ALG:2,17,S,0;16,17,W,1;10,11,S,2;4,6,N,3;9,2,E,4;17,5,W,5;"
     # x = 'ALG:10,17,S,0;17,17,W,1;2,16,S,2;16,4,S,3;13,1,W,4;6,6,N,5;9,11,W,6;3,3,E,7;'.encode(
             #     'utf-8')
     # a = "ALG:2,17,S,0;16,17,W,1;10,11,S,2;4,6,N,3;9,2,E,4;17,5,W,5;".encode(
@@ -35,7 +33,7 @@ if __name__ == "__main__":
     # z = "ALG:8,2,E,1;8,6,N,2;19,0,N,3;2,16,E,4;11,11,E,5;".encode("utf-8")
 
     algo = Algo()
-    # algo.run_task1(a)
-    algo.run_simulator()
+    algo.run_task1(a)
+#     algo.run_simulator()
 
     pass
