@@ -11,12 +11,23 @@ app = Flask(__name__)
 CORS(app)
 
 
-
 def draw_box(image, label, bbox):
     x1, y1, x2, y2 = bbox
     draw = ImageDraw.Draw(image)
+    # add label
+    font_size = 20  # You can adjust the size as needed
+    font = ImageFont.truetype("Keyboard.ttf", font_size)
+    # Calculate text size
+
+    # Calculate text position to be above the bounding box
+    text_x = x1
+    text_y = y1 - font_size - 5  # Adjust the 5 pixels offset as needed
+
+    # Draw the label above the bounding box
+    draw.text((text_x, text_y), label, fill="red", font=font)
+    # add bbox
     draw.rectangle([x1, y1, x2, y2], outline="red", width=2)
-    draw.text((x1, y1 - 10), label, fill="red")
+
     return image
 
 
