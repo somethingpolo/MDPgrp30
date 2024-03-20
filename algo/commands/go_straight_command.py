@@ -55,13 +55,13 @@ class StraightCommand(Command):
         # Check if forward or backward.
         if int(self.dist) < 0:
             if int(self.dist) > -100:  # -90 to -10
-                comm = f"SB0{-self.dist}"
+                comm = f"b0{-self.dist}."
             else:
-                comm = f"SB{-self.dist}"
+                comm = f"b{-self.dist}."
             return comm
         else:
             if int(self.dist) >= 100:
-                comm = f"SF{self.dist}"
+                comm = f"f{self.dist}."
             else:
-                comm = f"SF0{self.dist}"
+                comm = f"f0{self.dist}."
             return comm

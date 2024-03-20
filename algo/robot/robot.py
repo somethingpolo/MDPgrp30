@@ -72,13 +72,20 @@ class Robot:
         """
         print("Converting commands to string...", end="")
         string_commands = []
+        temp_str = ""
         for command in self.hamiltonian.commands:
             commands = command.convert_to_message()
-            if isinstance(commands, list):
-                for cmd in commands:
-                    string_commands.append(cmd)
-            else:
+            if commands[0] == "P": #If the command is to take the picture
+                if temp_str != "":
+                    string_commands.append(temp_str)
+                    temp_str = ""
                 string_commands.append(commands)
+            else:
+                temp_str += commands
+        
+        if temp_str != "":
+            string_commands.append(temp_str)
+            
         return string_commands
 
     def turn(self, type_of_command, left, right, rev):
