@@ -60,137 +60,142 @@ class TurnCommand(Command):
         )
 
         # Get change in (x, y) coordinate.
+        # Changes:
+        # Turn left
+        # Turn right
+
 
         # turn left and forward
         if self.left and not self.right and not self.reverse:
             if self.type_of_turn == TypeOfTurn.SMALL:
                 if curr_pos.direction == Direction.TOP:
-                    curr_pos.x -= 10
-                    curr_pos.y += 40
+                    curr_pos.x -= constants.TURN_SMALL_LEFT_FORWARD[0]
+                    curr_pos.y += constants.TURN_SMALL_LEFT_FORWARD[1]
                 elif curr_pos.direction == Direction.LEFT:
-                    curr_pos.x -= 40
-                    curr_pos.y -= 10
+                    curr_pos.x -= constants.TURN_SMALL_LEFT_FORWARD[1]
+                    curr_pos.y -= constants.TURN_SMALL_LEFT_FORWARD[0]
                 elif curr_pos.direction == Direction.RIGHT:
-                    curr_pos.x += 40
-                    curr_pos.y += 10
+                    curr_pos.x += constants.TURN_SMALL_LEFT_FORWARD[1]
+                    curr_pos.y += constants.TURN_SMALL_LEFT_FORWARD[0]
                 elif curr_pos.direction == Direction.BOTTOM:
-                    curr_pos.x += 10
-                    curr_pos.y -= 40
+                    curr_pos.x += constants.TURN_SMALL_LEFT_FORWARD[0]
+                    curr_pos.y -= constants.TURN_SMALL_LEFT_FORWARD[1]
             elif self.type_of_turn == TypeOfTurn.MEDIUM:
                 if curr_pos.direction == Direction.TOP:
-                    curr_pos.x -= 30
-                    curr_pos.y += 20
+                    curr_pos.x -= constants.TURN_MEDIUM_LEFT_FORWARD[0]
+                    curr_pos.y += constants.TURN_MEDIUM_LEFT_FORWARD[1]
                     curr_pos.direction = Direction.LEFT
                 elif curr_pos.direction == Direction.LEFT:
-                    curr_pos.x -= 20
-                    curr_pos.y -= 30
+                    curr_pos.x -= constants.TURN_MEDIUM_LEFT_FORWARD[1]
+                    curr_pos.y -= constants.TURN_MEDIUM_LEFT_FORWARD[0]
                     curr_pos.direction = Direction.BOTTOM
                 elif curr_pos.direction == Direction.RIGHT:
-                    curr_pos.x += 20
-                    curr_pos.y += 30
+                    curr_pos.x += constants.TURN_MEDIUM_LEFT_FORWARD[1]
+                    curr_pos.y += constants.TURN_MEDIUM_LEFT_FORWARD[0]
                     curr_pos.direction = Direction.TOP
                 elif curr_pos.direction == Direction.BOTTOM:
-                    curr_pos.x += 30
-                    curr_pos.y -= 20
+                    curr_pos.x += constants.TURN_MEDIUM_LEFT_FORWARD[0]
+                    curr_pos.y -= constants.TURN_MEDIUM_LEFT_FORWARD[1]
                     curr_pos.direction = Direction.RIGHT
 
         # turn right and forward
         if self.right and not self.left and not self.reverse:
             if self.type_of_turn == TypeOfTurn.SMALL:
                 if curr_pos.direction == Direction.TOP:
-                    curr_pos.x += 10
-                    curr_pos.y += 40
+                    curr_pos.x += constants.TURN_SMALL_RIGHT_FORWARD[0]
+                    curr_pos.y +=  constants.TURN_SMALL_RIGHT_FORWARD[1]
                 elif curr_pos.direction == Direction.LEFT:
-                    curr_pos.x -= 40
-                    curr_pos.y += 10
+                    curr_pos.x -= constants.TURN_SMALL_RIGHT_FORWARD[1]
+                    curr_pos.y += constants.TURN_SMALL_RIGHT_FORWARD[0]
                 elif curr_pos.direction == Direction.RIGHT:
-                    curr_pos.x += 40
-                    curr_pos.y -= 10
+                    curr_pos.x += constants.TURN_SMALL_RIGHT_FORWARD[1]
+                    curr_pos.y -= constants.TURN_SMALL_RIGHT_FORWARD[0]
                 elif curr_pos.direction == Direction.BOTTOM:
-                    curr_pos.x -= 10
-                    curr_pos.y -= 40
+                    curr_pos.x -= constants.TURN_SMALL_RIGHT_FORWARD[0]
+                    curr_pos.y -= constants.TURN_SMALL_RIGHT_FORWARD[1]
             elif self.type_of_turn == TypeOfTurn.MEDIUM:
                 if curr_pos.direction == Direction.TOP:
-                    curr_pos.x += 30
-                    curr_pos.y += 20
+                    curr_pos.x += constants.TURN_MEDIUM_RIGHT_FORWARD[0]
+                    curr_pos.y +=  constants.TURN_MEDIUM_RIGHT_FORWARD[1]
                     curr_pos.direction = Direction.RIGHT
                 elif curr_pos.direction == Direction.LEFT:
-                    curr_pos.x -= 20
-                    curr_pos.y += 30
+                    curr_pos.x -= constants.TURN_MEDIUM_RIGHT_FORWARD[1]
+                    curr_pos.y += constants.TURN_MEDIUM_RIGHT_FORWARD[0]
                     curr_pos.direction = Direction.TOP
                 elif curr_pos.direction == Direction.RIGHT:
-                    curr_pos.x += 20
-                    curr_pos.y -= 30
+                    curr_pos.x += constants.TURN_MEDIUM_RIGHT_FORWARD[1]
+                    curr_pos.y -= constants.TURN_MEDIUM_RIGHT_FORWARD[0]
                     curr_pos.direction = Direction.BOTTOM
                 elif curr_pos.direction == Direction.BOTTOM:
-                    curr_pos.x -= 30
-                    curr_pos.y -= 20
+                    curr_pos.x -= constants.TURN_MEDIUM_RIGHT_FORWARD[0]
+                    curr_pos.y -= constants.TURN_MEDIUM_RIGHT_FORWARD[1]
                     curr_pos.direction = Direction.LEFT
 
         # turn front wheels left and reverse
+        # Haven't trying measure this out yet
         if self.left and not self.right and self.reverse:
             if self.type_of_turn == TypeOfTurn.SMALL:
                 if curr_pos.direction == Direction.TOP:
-                    curr_pos.x -= 10
-                    curr_pos.y -= 40
+                    curr_pos.x -= constants.TURN_SMALL_LEFT_REVERSE[0]
+                    curr_pos.y -= constants.TURN_SMALL_LEFT_REVERSE[1]
                 elif curr_pos.direction == Direction.LEFT:
-                    curr_pos.x += 40
-                    curr_pos.y -= 10
+                    curr_pos.x += constants.TURN_SMALL_LEFT_REVERSE[1]
+                    curr_pos.y -= constants.TURN_SMALL_LEFT_REVERSE[0]
                 elif curr_pos.direction == Direction.RIGHT:
-                    curr_pos.x -= 40
-                    curr_pos.y += 10
+                    curr_pos.x -= constants.TURN_SMALL_LEFT_REVERSE[1]
+                    curr_pos.y += constants.TURN_SMALL_LEFT_REVERSE[0]
                 elif curr_pos.direction == Direction.BOTTOM:
-                    curr_pos.x += 10
-                    curr_pos.y += 40
+                    curr_pos.x += constants.TURN_SMALL_LEFT_REVERSE[0]
+                    curr_pos.y += constants.TURN_SMALL_LEFT_REVERSE[1]
             elif self.type_of_turn == TypeOfTurn.MEDIUM:
                 if curr_pos.direction == Direction.TOP:
-                    curr_pos.x -= 20
-                    curr_pos.y -= 30
+                    curr_pos.x -= constants.TURN_MEDIUM_LEFT_REVERSE[0]
+                    curr_pos.y -= constants.TURN_MEDIUM_LEFT_REVERSE[1]
                     curr_pos.direction = Direction.RIGHT
                 elif curr_pos.direction == Direction.LEFT:
-                    curr_pos.x += 30
-                    curr_pos.y -= 20
+                    curr_pos.x += constants.TURN_MEDIUM_LEFT_REVERSE[1]
+                    curr_pos.y -= constants.TURN_MEDIUM_LEFT_REVERSE[0]
                     curr_pos.direction = Direction.TOP
                 elif curr_pos.direction == Direction.RIGHT:
-                    curr_pos.x -= 30
-                    curr_pos.y += 20
+                    curr_pos.x -= constants.TURN_MEDIUM_LEFT_REVERSE[1]
+                    curr_pos.y += constants.TURN_MEDIUM_LEFT_REVERSE[0]
                     curr_pos.direction = Direction.BOTTOM
                 elif curr_pos.direction == Direction.BOTTOM:
-                    curr_pos.x += 20
-                    curr_pos.y += 30
+                    curr_pos.x += constants.TURN_MEDIUM_LEFT_REVERSE[0]
+                    curr_pos.y += constants.TURN_MEDIUM_LEFT_REVERSE[1]
                     curr_pos.direction = Direction.LEFT
 
         # turn front wheels right and reverse
         if self.right and not self.left and self.reverse:
             if self.type_of_turn == TypeOfTurn.SMALL:
                 if curr_pos.direction == Direction.TOP:
-                    curr_pos.x += 10
-                    curr_pos.y -= 40
+                    curr_pos.x += constants.TURN_SMALL_RIGHT_REVERSE[0]
+                    curr_pos.y -= constants.TURN_SMALL_RIGHT_REVERSE[1]
                 elif curr_pos.direction == Direction.LEFT:
-                    curr_pos.x += 40
-                    curr_pos.y += 10
+                    curr_pos.x += constants.TURN_SMALL_RIGHT_REVERSE[1]
+                    curr_pos.y += constants.TURN_SMALL_RIGHT_REVERSE[0]
                 elif curr_pos.direction == Direction.RIGHT:
-                    curr_pos.x -= 40
-                    curr_pos.y -= 10
+                    curr_pos.x -= constants.TURN_SMALL_RIGHT_REVERSE[1]
+                    curr_pos.y -= constants.TURN_SMALL_RIGHT_REVERSE[0]
                 elif curr_pos.direction == Direction.BOTTOM:
-                    curr_pos.x -= 10
-                    curr_pos.y += 40
+                    curr_pos.x -= constants.TURN_SMALL_RIGHT_REVERSE[0]
+                    curr_pos.y += constants.TURN_SMALL_RIGHT_REVERSE[1]
             elif self.type_of_turn == TypeOfTurn.MEDIUM:
                 if curr_pos.direction == Direction.TOP:
-                    curr_pos.x += 20
-                    curr_pos.y -= 30
+                    curr_pos.x += constants.TURN_MEDIUM_RIGHT_REVERSE[0]
+                    curr_pos.y -= constants.TURN_MEDIUM_RIGHT_REVERSE[1]
                     curr_pos.direction = Direction.LEFT
                 elif curr_pos.direction == Direction.LEFT:
-                    curr_pos.x += 30
-                    curr_pos.y += 20
+                    curr_pos.x +=constants.TURN_MEDIUM_RIGHT_REVERSE[1]
+                    curr_pos.y += constants.TURN_MEDIUM_RIGHT_REVERSE[0]
                     curr_pos.direction = Direction.BOTTOM
                 elif curr_pos.direction == Direction.RIGHT:
-                    curr_pos.x -= 30
-                    curr_pos.y -= 20
+                    curr_pos.x -= constants.TURN_MEDIUM_RIGHT_REVERSE[1]
+                    curr_pos.y -= constants.TURN_MEDIUM_RIGHT_REVERSE[0]
                     curr_pos.direction = Direction.TOP
                 elif curr_pos.direction == Direction.BOTTOM:
-                    curr_pos.x -= 20
-                    curr_pos.y += 30
+                    curr_pos.x -= constants.TURN_MEDIUM_RIGHT_REVERSE[0]
+                    curr_pos.y += constants.TURN_MEDIUM_RIGHT_REVERSE[1]
                     curr_pos.direction = Direction.RIGHT
 
         return self
@@ -199,32 +204,34 @@ class TurnCommand(Command):
         if self.left and not self.right and not self.reverse:
             # This is going forward left.
             if self.type_of_turn == TypeOfTurn.SMALL:
-                return "KF001"  # turn left small forward!
+                # return ["LF035", "RF035"] # turn left small forward!
+                return ["LF035", "SF003","RF035"] 
             elif self.type_of_turn == TypeOfTurn.MEDIUM:
-                return "LF090"  # turn left medium forward!
+                return ["SF005","LF090"]  # turn left medium forward!
             elif self.type_of_turn == TypeOfTurn.LARGE:
                 return "LF180"  # turn left large forward!
         elif self.left and not self.right and self.reverse:
             # This is going backward and front wheels are turned to left
             if self.type_of_turn == TypeOfTurn.SMALL:
-                return "KB001"  # turn left small reverse!
+                return ["LB035", "SB003", "RB035"]  # turn left small reverse!
             elif self.type_of_turn == TypeOfTurn.MEDIUM:
-                return "LB090"  # turn left medium reverse!
+                return ["LB090","SB005"]  # turn left medium reverse!
             elif self.type_of_turn == TypeOfTurn.LARGE:
                 return "LB180"  # turn left large reverse!
         elif self.right and not self.left and not self.reverse:
             # This is going forward right.
             if self.type_of_turn == TypeOfTurn.SMALL:
-                return "JF001"  # turn right small forward!
+                # return ["RF035", "LF035"]  # turn right small forward!
+                return ["RF035", "SF003", "LF035"]
             elif self.type_of_turn == TypeOfTurn.MEDIUM:
-                return "RF090"  # turn right medium forward!
+                return ["SF003","RF090","SB003"]  # turn right medium forward!
             elif self.type_of_turn == TypeOfTurn.LARGE:
                 return "RF180"  # turn right large forward!
         else:
             # This is going backward and the front wheels turned to the right.
             if self.type_of_turn == TypeOfTurn.SMALL:
-                return "JB001"  # turn right small reverse!
+                return ["RB035", "SB003", "LB035"] # turn right small reverse!
             elif self.type_of_turn == TypeOfTurn.MEDIUM:
-                return "RB090"  # turn right medium reverse!
+                return ["SF003","RB090","SB005"]  # turn right medium reverse!
             elif self.type_of_turn == TypeOfTurn.LARGE:
                 return "RB180"  # turn right large reverse!

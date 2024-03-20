@@ -202,10 +202,11 @@ class Hamiltonian:
                 res, cmd = ModifiedAStar(
                     self.grid, self, curr, target, rerun
                 ).start_astar(True)
+                print("Trying ModifiedAStar..., rerun value = {0}".format(rerun))
                 if res:
                     break
             if res is None:
-                print(f"No path found from {curr} to {obstacle}")
+                print(f"No path found from {curr} to {obstacle}. FINAL.")
             else:
                 print("Path found!")
                 curr = res

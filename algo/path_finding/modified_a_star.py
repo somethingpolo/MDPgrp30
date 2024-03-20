@@ -57,17 +57,13 @@ class ModifiedAStar:
         turn_penalty = 100
         turn_commands = [  # type of turn, Left, Right, Reverse
             TurnCommand(TypeOfTurn.SMALL, True, False, False),  # L SMALL turn, forward
-            TurnCommand(
-                TypeOfTurn.MEDIUM, True, False, False
-            ),  # L MEDIUM turn, forward
+            TurnCommand(TypeOfTurn.MEDIUM, True, False, False),  # L MEDIUM turn, forward
             # TurnCommand(TypeOfTurn.LARGE, True, False, False),  # L LARGE turn, forward
             TurnCommand(TypeOfTurn.SMALL, True, False, True),  # L SMALL turn, reverse
             TurnCommand(TypeOfTurn.MEDIUM, True, False, True),  # L MEDIUM turn, reverse
             # TurnCommand(TypeOfTurn.LARGE, True, False, True),  # L LARGE turn, reverse
             TurnCommand(TypeOfTurn.SMALL, False, True, False),  # R SMALL turn, forward
-            TurnCommand(
-                TypeOfTurn.MEDIUM, False, True, False
-            ),  # R MEDIUM turn, forward
+            TurnCommand(TypeOfTurn.MEDIUM, False, True, False),  # R MEDIUM turn, forward
             # TurnCommand(TypeOfTurn.LARGE, False, True, False),  # R LARGE turn, forward
             TurnCommand(TypeOfTurn.SMALL, False, True, True),  # R SMALL turn, reverse
             TurnCommand(TypeOfTurn.MEDIUM, False, True, True),  # R MEDIUM turn, reverse

@@ -5,7 +5,7 @@ from copy import deepcopy
 import pygame
 import pygame.freetype
 
-import algo.constants
+import algo.constants as constants
 from algo.commands.go_straight_command import StraightCommand
 from algo.commands.scan_obstacle_command import ScanCommand
 from algo.commands.turn_command import TurnCommand

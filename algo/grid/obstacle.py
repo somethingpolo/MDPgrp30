@@ -46,14 +46,16 @@ class Obstacle:
         x_range, y_range = [], []
 
         x_range = [
-            position.x - constants.GRID_CELL_LENGTH,
-            position.x,
-            position.x + constants.GRID_CELL_LENGTH,
+            # position.x - constants.GRID_CELL_LENGTH,
+            # position.x,
+            # position.x + constants.GRID_CELL_LENGTH,
+            position.x
         ]
         y_range = [
-            position.y - constants.GRID_CELL_LENGTH,
-            position.y,
-            position.y + constants.GRID_CELL_LENGTH,
+            # position.y - constants.GRID_CELL_LENGTH,
+            # position.y,
+            # position.y + constants.GRID_CELL_LENGTH,
+            position.y
         ]
 
         # if position.direction == Direction.TOP:

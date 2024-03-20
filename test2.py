@@ -25,9 +25,9 @@ file_extension = ".jpg"
 current_index = 1
 bullseyeIndex = 0
 
-config = 'C:/NTU/MDP/mmdet/configs/mdp/mdpv30.py'
+config = './configs/mdp/mdpv30.py'
 # Setup a checkpoint file to load
-checkpoint = 'C:/NTU/MDP/mmdet/work_dirs/mdpv30/epoch_300.pth'
+checkpoint = './work_dirs/mdpv30/epoch_300.pth'
 # initialize the detector
 model = init_detector(config, checkpoint, device='cpu')
 

@@ -2,7 +2,7 @@ import socket
 import time
 from typing import List
 
-import algo.constants
+import algo.constants as constants
 from algo.commands.go_straight_command import StraightCommand
 from algo.commands.scan_obstacle_command import ScanCommand
 from algo.grid.grid import Grid
@@ -41,6 +41,7 @@ class Algo:
 
     def run_simulator(self):
         # For simulation testing, change this with the obstacles to test.
+        print("Running simulator")
         obstacles = []
         i = 0
         for x, y, direction in constants.SIMULATOR_OBSTACLES:
@@ -141,6 +142,7 @@ if __name__ == "__main__":
     # z = "ALG:8,2,E,1;8,6,N,2;19,0,N,3;2,16,E,4;11,11,E,5;".encode("utf-8")
 
     algo = Algo()
-    algo.run_task1(a)
+    # algo.run_task1(a)
+    algo.run_simulator()
 
     pass
