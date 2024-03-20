@@ -12,7 +12,7 @@ def process_image(image_path):
     result = inference_detector(model, image_path)
     is_right_image = result.pred_instances.labels.nelement() > 0
     if is_right_image:
-        return classes[result.pred_instances.labels[0]]
+        return classes[result.pred_instances.labels[0]], result.pred_instances.bboxes[0] 
     else:
         return None
     
