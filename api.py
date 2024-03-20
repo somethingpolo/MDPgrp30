@@ -15,8 +15,8 @@ def draw_box(image, label, bbox):
     x1, y1, x2, y2 = bbox
     draw = ImageDraw.Draw(image)
     # add label
-    font_size = 20  # You can adjust the size as needed
-    font = ImageFont.truetype("Keyboard.ttf", font_size)
+    font_size = 18  # You can adjust the size as needed
+    font = ImageFont.truetype("Arial Bold.ttf", font_size)
     # Calculate text size
 
     # Calculate text position to be above the bounding box
