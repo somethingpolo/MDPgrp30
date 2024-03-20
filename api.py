@@ -5,26 +5,15 @@ from model import *
 from test2 import process_image
 from algo.algo import Algo
 from PIL import Image
-from mmdet.apis import inference_detector, init_detector
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageDraw
 
 app = Flask(__name__)
 CORS(app)
 
 
-classes = ['0_Bulls Eye', '11_1', '12_2', '13_3', '14_4', '15_5', '16_6', '17_7',
-            '18_8', '19_9', '20_A', '21_B', '22_C', '23_D', '24_E', '25_F', '26_G',
-            '27_H', '28_S', '29_T', '30_U', '31_V', '32_W', '33_X', '34_Y', '35_Z',
-            '36_Up', '37_Down', '38_Right', '39_Left', '40_Stop']
 
-# load model
-config = './configs/mdp/mdpv30.py'
-checkpoint = './work_dirs/mdpv30/epoch_300.pth'
-model = init_detector(config, checkpoint, device='cpu')
-
-def draw_box(image, result):
-    x1, y1, x2, y2 = result.pred_instances.bboxes[0] 
-    label = classes[result.pred_instances.labels[0]]
+def draw_box(image, label, bbox):
+    x1, y1, x2, y2 = bbox
     draw = ImageDraw.Draw(image)
     draw.rectangle([x1, y1, x2, y2], outline="red", width=2)
     draw.text((x1, y1 - 10), label, fill="red")
@@ -45,12 +34,11 @@ def predict_image():
     new_image = orig_image.transpose(method=Image.FLIP_TOP_BOTTOM)
     new_image = new_image.transpose(method=Image.FLIP_LEFT_RIGHT)
     # inference the image
-    result = inference_detector(model, new_image)
-    viz_result = draw_box(new_image, result)
+    image_label, image_bbox = process_image(f"images/{filename}")
+    viz_result = draw_box(new_image, image_label, image_bbox)
     viz_result.save(f"images/{filename}")
-    image_id = process_image(f"images/{filename}")
     result = {
-        "image_id": image_id
+        "image_id": image_label
     }
 
     return jsonify(result)
